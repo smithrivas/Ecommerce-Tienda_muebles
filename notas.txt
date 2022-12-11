@@ -1,2 +1,169 @@
+EXTENSIONES VS CODE
+-Auto Rename Tag
+-Auto Close Tag
+-Auto Complete Tag
+-Live Server
+-vscode-icons
+-CSS Peek
+
 TEXTOS
 Solo puede haber un H1 por página
+
+480p mobile
+768px en adelante
+992px en adelante
+
+---
+SELECTORES
+Ejemplo: pseudoselectores
+nav a:first-child {selecciona el primero}
+nav a:last-child {selecciona el último}
+nav a:nth-child(2) {selecciona el que indiquemos, inicia en 1}
+
+ESPECIFICIDAD
+id->class->elemento->!important
+
+BOX MODEL
+box-sizing: content-box; //Lo que se asigne a margin y pading se suma al width inicial
+box-sizing: border-box; //Lo que se asigne a margin y pading no afecta al width inicial
+
+TRUCO BOX-MODEL
+html{
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+//Evita que se incremente la medida del elemento al aplicar margin, pading, border
+
+MARGIN - PADDING
+Margin desde la línea hacia afuera, Padding desde la línea hacia adentro
+
+NORMALIZE
+https://necolas.github.io/normalize.css/
+//Asegura que los estilos de la página se vean igual en todos los navegadores
+
+DISPLAY
+Block: Uno debajo del otro sin importar el tamaño(<div>)
+Inline: Uno al lado del otro-derecha(No se puede poner width, height, margin)(<a><img>)
+Inline-block: permite darle width, height, margin a un elemento inline
+*Los elementos traen un display por default, solo especificarlo cuando se desee modificar
+
+IMAGEN
+background-image: url(../img/principal.jpg);
+background-repeat: no-repeat; /*Para no generar efecto mosaico*/
+background-size: cover; /*La imagen se ajusta al 100% de la pantalla*/
+background-position: center center; /*Centrar la imagen en la vista*/
+height: 550px;
+
+CONTENEDOR	
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+Se toma 100% hasta máximo 1200px, a partir de ahí se centra y se cubre solo lo que ocupe la medida
+
+FLEXBOX
+row: Se ubican de izquiera a derecha
+column: Arriba hacia abajo
+row->justify-content: alinear horizontalmente
+column->justify-content: Alinear verticalmente(inicio, centro, final)
+row->align-items: Alinear verticalmente(inicio, centro, final)
+column->align-items: Alinear horizontalmente(toma el papel de justify)
+
+// Factor de crecimiento, cada que aumente duplica su unidad
+.grid-footer div{
+    flex: 1;
+}
+.grid-footer div:nth-child(2){
+    flex: 3;
+}
+*Cuando aumente el tamaño el primero ocupará 2 y el segundo 6
+
+***Utilizar paras la alineación o distribución de los elementos que estarán dentro de contenedores (nav bar)
+
+/* Para que no se genere desbordamiento */
+img{
+    max-width: 100%;
+    display: block;
+}
+
+MEDIDAS
+50% (la mitad de la medida que tenga asignada el elemento padre)
+em: toma el valor del tamaño del padre(navegador), 2em es el doble del tamaño del padre
+vw: se adapta al tamaño de la pantalla - vw es la unidad de ancho de la ventana gráfica representa un porcentaje del ancho de la ventana gráfica. 50vw significa el 50% del ancho de la ventana gráfica.
+
+MEDIDAS->Hack para que los 1 rem equivalga a 10px
+html{
+	font-size: 62.5%;
+}
+body{
+	font-size: 1.6rem;
+}
+***rems se adaptan mejor a la densidad de pixeles de las pantallas que como lo hacen los px
+
+PLANTILLA CSS GLOBALES
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+body{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+/* GLOBALES */
+h1, h2, h3{
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 5rem 0;
+}
+h1{
+    font-size: 5rem;
+}
+h2{
+    font-size: 4rem;
+}
+h3{
+    font-size: 3rem;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/* Para que no se genere desbordamiento */
+img{
+    max-width: 100%;
+    display: block;
+}
+
+GRID
+display: grid;
+grid-template-columns: repeat(2, 1fr);    
+grid-column: 2/3;
+***Utilizar para definir el layout de un sitio web como pueden ser las columnas o contenedores de elementos
+Gid para organizar contenedores y Flexbox para ubicar el contenido dentro de ellos
+
+.listado-productos{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.producto:nth-child(1){
+    
+}
+display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem; //Espaciado entre elementos
+
+OBJECT FIT
+Establece como se ajusta el tamaño de su contenido dentro del contenedor
+object-fit: cover;
